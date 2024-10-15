@@ -22,7 +22,7 @@ public class UserIntegrationTest {
   @Test
   public void testGetUsers() {
     UserResponseDto[] responseBody = webTestClient.get().uri("/users")
-      .headers(AuthenticationTest.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
+      .headers(JwtAuthentication.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
       .exchange()
       .expectStatus().isOk()
       .expectBody(UserResponseDto[].class)
@@ -35,7 +35,7 @@ public class UserIntegrationTest {
    @Test
    public void testGetUserById() {
      UserResponseDto responseBody = webTestClient.get().uri("/users/1")
-       .headers(AuthenticationTest.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
+       .headers(JwtAuthentication.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
        .exchange()
        .expectStatus().isOk()
        .expectBody(UserResponseDto.class)
@@ -80,7 +80,7 @@ public class UserIntegrationTest {
    @Test
    public void testUpdateUser() {
        UserResponseDto response = webTestClient.put().uri("/users/1")
-               .headers(AuthenticationTest.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
+               .headers(JwtAuthentication.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
                .contentType(MediaType.APPLICATION_JSON)
                .bodyValue(new UserRegisterDto("updated@gmail.com", null, null))
                .exchange()
@@ -96,7 +96,7 @@ public class UserIntegrationTest {
    @Test
    public void testDeactivateUser() {
      UserResponseDto responseBody = webTestClient.put().uri("/users/1/deactivate")
-       .headers(AuthenticationTest.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
+       .headers(JwtAuthentication.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
        .exchange()
        .expectStatus().isOk()
        .expectBody(UserResponseDto.class)
@@ -109,7 +109,7 @@ public class UserIntegrationTest {
    @Test
    public void testActivateUser() {
         UserResponseDto responseBody = webTestClient.put().uri("/users/3/activate")
-        .headers(AuthenticationTest.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
+        .headers(JwtAuthentication.getHeaderAuthorization(webTestClient, "keidy@gmail.com", "123456"))
         .exchange()
         .expectStatus().isOk()
         .expectBody(UserResponseDto.class)

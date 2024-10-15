@@ -7,7 +7,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.function.Consumer;
 
-public class AuthenticationTest {
+public class JwtAuthentication {
     public static Consumer<HttpHeaders> getHeaderAuthorization(WebTestClient client, String email, String password) {
         String token = client
                 .post().uri("/auth/login")
