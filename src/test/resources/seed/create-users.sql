@@ -1,0 +1,3 @@
+INSERT INTO users (id, email, password, role, created_at, updated_at) VALUES (1, 'keidy@gmail.com', '$2a$10$1AT0tvcF0xyQqzXQmnOQju7ctA9Ntq/iuTCAiPBYvvPOjhLK0qQ92', 'ADMIN', '2021-01-01', '2021-01-01');
+INSERT INTO users (id, email, password, role, created_at, updated_at) VALUES (2, 'gomes@gmail.com', '$2a$10$1AT0tvcF0xyQqzXQmnOQju7ctA9Ntq/iuTCAiPBYvvPOjhLK0qQ92', 'USER', '2021-01-01', '2021-01-01');
+INSERT INTO users (id, email, password, role, created_at, updated_at, deleted_at) VALUES (3, 'baptista@gmail.com', '$2a$10$1AT0tvcF0xyQqzXQmnOQju7ctA9Ntq/iuTCAiPBYvvPOjhLK0qQ92', 'USER', '2021-01-01', '2021-01-01', '2021-01-01');
